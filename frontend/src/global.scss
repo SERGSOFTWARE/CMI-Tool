@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&family=Source+Code+Pro&family=Source+Code+Pro&family=Rajdhani&family=Chivo+Mono&display=swap");
+
+#root {
+  display: flex;
+  height: 100%;
+  margin: 0 auto;
+}
+
+:root {
+  --vh: 1vh;
+  --font-family: "Rajdhani", sans-serif;
+  --title-font: "Ubuntu", sans-serif;
+  --font-color: black;
+  --color-custom: #8099ed;
+  --color-custom-disabled: #c9c9bd;
+  --toolbar-background: #9fd1f5;
+  --body-background: #e1eef7;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  height: calc(100 * var(--vh));
+  margin: 0;
+  background-color: var(--body-background);
+  font-family: var(--font-family);
+  font-variant-ligatures: none;
+  overflow: scroll;
+}
+
+// TOOLBAR - START
+
+.tool-bar-root {
+  box-sizing: border-box;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  background-color: var(--toolbar-background) !important;
+}
+
+.tool-bar-sub-root {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tool-bar-heading-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tool-bar-app-icon {
+  margin-right: 10px;
+}
+
+.tool-bar-heading {
+  color: var(--font-color);
+}
+
+.tool-bar-setting-icon {
+  color: var(--font-color);
+}
+
+// TOOLBAR - END
+
+// HOME - START
+
+.home-component {
+  margin-top: 80px;
+}
+
+// HOME - END
+
+// DROPDOWN - START
+
+.dropdown-root {
+  min-width: 220px !important;
+}
+
+// DROPDOWN - END
