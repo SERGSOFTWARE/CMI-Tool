@@ -5,9 +5,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "../Atoms/Typography";
 import TuneIcon from "@mui/icons-material/Tune";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
+import RotateLeftIcon from "@mui/icons-material/RotateLeft";
 import { Tooltip } from "@mui/material";
 
-function HeaderBar({ onSettingsClicked }) {
+function HeaderBar({ onSettingsClicked, onResetClicked }) {
   return (
     <AppBar className="tool-bar-root">
       <Toolbar className="tool-bar-sub-root">
@@ -21,15 +22,27 @@ function HeaderBar({ onSettingsClicked }) {
             </Typography>
           </div>
         </div>
-        <div>
-          <Tooltip title={"Settings"} placement="bottom">
-            <TuneIcon
-              onClick={() => {
-                onSettingsClicked();
-              }}
-              className="tool-bar-setting-icon"
-            />
-          </Tooltip>
+        <div className="tool-bar-icon-container">
+          <div className="tool-bar-icon-setting-container">
+            <Tooltip title={"Settings"} placement="bottom">
+              <TuneIcon
+                onClick={() => {
+                  onSettingsClicked();
+                }}
+                className="tool-bar-setting-icon icon-curser-pointer"
+              />
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip title={"Reset"} placement="bottom">
+              <RotateLeftIcon
+                onClick={() => {
+                  onResetClicked();
+                }}
+                className="tool-bar-setting-icon icon-curser-pointer"
+              />
+            </Tooltip>
+          </div>
         </div>
       </Toolbar>
     </AppBar>

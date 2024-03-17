@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import counterReducer from "./Slice/counterSlice";
+import chemicalsSlice from "./Slice/chemicalsSlice";
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
+  chemicalData: chemicalsSlice,
 });
 
 export default rootReducer;

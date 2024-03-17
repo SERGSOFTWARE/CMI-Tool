@@ -1,31 +1,57 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { increment, decrement } from "../Redux/Reducers/Slice/counterSlice";
 import HeaderBar from "../Components/Organisms/HeaderBar";
-import DropDown from "../Components/Atoms/DropDown";
-
+import ModalBox from "../Components/Atoms/ModalBox";
+import {
+  updateChemicalValue,
+  resetState,
+} from "../Redux/Reducers/Slice/chemicalsSlice";
+import TextFieldsModalBody from "../Components/Molecules/TextFieldsModalBody";
+import TextBox from "../Components/Atoms/TextBox";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      settingsModalOpen: false,
+    };
   }
 
   componentDidMount = () => {};
   componentWillUnmount = () => {};
 
+  settingsModalClose = () => {
+    this.setState({
+      settingsModalOpen: false,
+    });
+  };
+
+  settingsModalOpen = () => {
+    this.setState({
+      settingsModalOpen: true,
+    });
+  };
+
+  onResetClicked = () => {
+    this.props.resetState();
+  };
+
   render() {
+    const { settingsModalOpen } = this.state;
+    const { chemicalData } = this.props;
     return (
       <>
-        <HeaderBar onSettingsClicked={() => {}} />
+        <HeaderBar
+          onSettingsClicked={() => this.settingsModalOpen()}
+          onResetClicked={() => this.onResetClicked()}
+        />
         <div className="home-component">
-          <DropDown
-            label={"Chem"}
-            value={"2"}
-            handleChange={() => {}}
-            options={[
-              { key: "1", value: "hello" },
-              { key: "2", value: "world" },
-            ]}
+          <ModalBox
+            title={"Chemical Values"}
+            open={settingsModalOpen}
+            handleClose={() => this.settingsModalClose()}
+            bodyComponent={
+              <TextFieldsModalBody dropDownOptions={chemicalData.value} />
+            }
           />
         </div>
       </>
@@ -35,14 +61,14 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    counter: state.counter,
+    chemicalData: state.chemicalData,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    increment: () => dispatch(increment()),
-    decrement: () => dispatch(decrement()),
+    updateChemicalValue: (data) => dispatch(updateChemicalValue(data)),
+    resetState: () => dispatch(resetState()),
   };
 };
 
