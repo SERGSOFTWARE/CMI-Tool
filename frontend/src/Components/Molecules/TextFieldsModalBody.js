@@ -1,5 +1,6 @@
 import React from "react";
 import TextBox from "../Atoms/TextBox";
+import { InputAdornment, Tooltip } from "@mui/material";
 
 export default function TextFieldsModalBody({
   dropDownOptions,
@@ -39,6 +40,23 @@ export default function TextFieldsModalBody({
               }}
               disabled={!ele.isEditable}
               id={`text-field-${index}`}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Tooltip title={"Million Metric Tons"} placement="bottom">
+                      <span
+                        className={
+                          ele.isEditable
+                            ? "text-field-adornment-unit"
+                            : "text-field-adornment-unit-disabled"
+                        }
+                      >
+                        MMT
+                      </span>
+                    </Tooltip>
+                  </InputAdornment>
+                ),
+              }}
             />
           );
         })}

@@ -10,6 +10,7 @@ export default function TextBox({
   onChange,
   value,
   disabled = false,
+  InputProps = {},
 }) {
   return (
     <Tooltip title={label} placement="top">
@@ -23,6 +24,7 @@ export default function TextBox({
         onChange={onChange}
         disabled={disabled}
         size="small"
+        InputProps={InputProps}
       />
     </Tooltip>
   );

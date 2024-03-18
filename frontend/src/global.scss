@@ -11,6 +11,7 @@
   --font-family: "Rajdhani", sans-serif;
   --title-font: "Ubuntu", sans-serif;
   --font-color: black;
+  --font-color-disabled: #8c8c83;
   --color-custom: #8099ed;
   --color-custom-disabled: #c9c9bd;
   --toolbar-background: #9fd1f5;
@@ -19,6 +20,7 @@
   --button-hover-color: #398039;
   --oval-chip-selected-color: #57768c;
   --modal-background-color: #dfe7ed;
+  --adornmant-font-size: 0.6rem;
 }
 
 html,
@@ -188,6 +190,16 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 16px !important;
   min-width: 120px;
   width: 220px;
+}
+
+.text-field-adornment-unit {
+  font-size: var(--adornmant-font-size) !important;
+  color: var(--font-color) !important;
+}
+
+.text-field-adornment-unit-disabled {
+  font-size: var(--adornmant-font-size) !important;
+  color: var(--font-color-disabled) !important;
 }
 // TEXTFIELD - END
 
