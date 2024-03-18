@@ -88,8 +88,8 @@ class Home extends Component {
             onNextButtonClicked={(step) => this.onNextClicked(step)}
             onPreviousButtonClicked={(step) => this.onPrevClicked(step)}
             onFinishButtonClicked={() => this.chemicalSettingsFinished()}
-            onChemicalValueChanges={(event, ele) =>
-              this.changeChemicalValue(event.target.value, ele)
+            onChemicalValueChanges={(value, ele) =>
+              this.changeChemicalValue(value, ele)
             }
             chemicalPartValueChanged={(ele) =>
               this.chemicalPartValueChanged(ele)

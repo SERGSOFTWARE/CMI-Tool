@@ -5,6 +5,8 @@ const chemicalObjectsInitialState = CHEMICAL_ITEMS.map((item) => ({
   label: item.label,
   value: item.value,
   key: item.key,
+  isEditable: item.isEditable,
+  limit: item.limit,
 }));
 
 const chemicalState = {

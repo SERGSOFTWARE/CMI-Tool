@@ -15,9 +15,10 @@
   --color-custom-disabled: #c9c9bd;
   --toolbar-background: #9fd1f5;
   --body-background: #e1eef7;
-  --button-color: #82b4d8;
-  --button-hover-color: #467698;
+  --button-color: #4a934a;
+  --button-hover-color: #398039;
   --oval-chip-selected-color: #57768c;
+  --modal-background-color: #dfe7ed;
 }
 
 html,
@@ -104,7 +105,7 @@ body {
   width: 80% !important;
   height: 80% !important;
   box-shadow: 24 !important;
-  background-color: #dfe7ed;
+  background-color: var(--modal-background-color);
   border-radius: 10px !important;
   padding: 26px !important;
   padding-left: 2rem !important;
@@ -198,3 +199,35 @@ input[type="number"]::-webkit-outer-spin-button {
 .oval-chip-Selected {
   background-color: var(--oval-chip-selected-color) !important;
 }
+
+// TOOLTIP - START
+.MuiTooltip-tooltip {
+  color: white !important;
+  font-size: 0.9rem !important;
+}
+
+// TOOLTIP - END
+
+// TYPOGRAPHY - START
+.typography-root {
+  color: var(--font-color);
+}
+// TYPOGRAPHY - END
+
+// MUI CSS - START
+// .MuiFormLabel-root {
+//   color: var(--font-color) !important;
+// }
+
+// .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+//   border-color: var(--font-color) !important;
+// }
+
+// .customTextField .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+//   border-color: var(--font-color) !important;
+// }
+
+// .MuiInputBase-input {
+//   color: var(--font-color) !important;
+// }
+// MUI CSS - END

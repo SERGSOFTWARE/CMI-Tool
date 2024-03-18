@@ -10,37 +10,37 @@ function Typography({
 }) {
   if (variant === "h2") {
     return (
-      <h2 className={className} style={customStyle}>
+      <h2 className={`typography-root ${className}`} style={customStyle}>
         {children}
       </h2>
     );
   } else if (variant === "h3") {
     return (
-      <h3 className={className} style={customStyle}>
+      <h3 className={`typography-root ${className}`} style={customStyle}>
         {children}
       </h3>
     );
   } else if (variant === "h4") {
     return (
-      <h4 className={className} style={customStyle}>
+      <h4 className={`typography-root ${className}`} style={customStyle}>
         {children}
       </h4>
     );
   } else if (variant === "h5") {
     return (
-      <h5 className={className} style={customStyle}>
+      <h5 className={`typography-root ${className}`} style={customStyle}>
         {children}
       </h5>
     );
   } else if (variant === "p") {
     return (
-      <p className={className} style={customStyle}>
+      <p className={`typography-root ${className}`} style={customStyle}>
         {children}
       </p>
     );
   } else {
     return (
-      <h1 className={className} style={customStyle}>
+      <h1 className={`typography-root ${className}`} style={customStyle}>
         {children}
       </h1>
     );

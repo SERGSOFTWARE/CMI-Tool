@@ -9,6 +9,7 @@ export default function TextBox({
   id,
   onChange,
   value,
+  disabled = false,
 }) {
   return (
     <Tooltip title={label} placement="top">
@@ -20,6 +21,8 @@ export default function TextBox({
         label={label}
         variant={variant}
         onChange={onChange}
+        disabled={disabled}
+        size="small"
       />
     </Tooltip>
   );
