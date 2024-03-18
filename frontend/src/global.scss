@@ -15,6 +15,9 @@
   --color-custom-disabled: #c9c9bd;
   --toolbar-background: #9fd1f5;
   --body-background: #e1eef7;
+  --button-color: #82b4d8;
+  --button-hover-color: #467698;
+  --oval-chip-selected-color: #57768c;
 }
 
 html,
@@ -121,7 +124,7 @@ body {
   height: 80%;
   margin-top: 16px;
   padding-top: 26px;
-  overflow-y: auto;
+  overflow-y: scroll;
   align-items: center;
 }
 
@@ -153,7 +156,7 @@ body {
 .button-root {
   min-width: 80px;
   min-height: 35px;
-  background-color: #60951a;
+  background-color: var(--button-color);
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -161,7 +164,7 @@ body {
 }
 
 .button-root:hover {
-  background-color: #4b790e;
+  background-color: var(--button-hover-color);
 }
 // Button
 
@@ -190,4 +193,8 @@ input[type="number"]::-webkit-outer-spin-button {
 // OVAL CHIPS
 .oval-chips-root {
   min-height: 40px !important;
+}
+
+.oval-chip-Selected {
+  background-color: var(--oval-chip-selected-color) !important;
 }

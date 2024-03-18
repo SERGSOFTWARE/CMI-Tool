@@ -4,8 +4,10 @@ import HeaderBar from "../Components/Organisms/HeaderBar";
 import {
   updateChemicalValue,
   resetState,
+  updateChemicalPartValue,
 } from "../Redux/Reducers/Slice/chemicalsSlice";
 import ModalStepper from "../Components/Organisms/ModalStepper";
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +59,17 @@ class Home extends Component {
     this.props.updateChemicalValue({ value: value, element: element });
   };
 
+  // on chemical part value changed
+  chemicalPartValueChanged = (element) => {
+    this.props.updateChemicalPartValue({ element: element });
+  };
+
+  // on finish clicked on chemical settings modal
+  chemicalSettingsFinished = (element) => {
+    this.settingsModalClose();
+    // CALL API HERE
+  };
+
   render() {
     const { settingsModalOpen, modalStepperStep } = this.state;
     const { chemicalData } = this.props;
@@ -74,9 +87,12 @@ class Home extends Component {
             step={modalStepperStep}
             onNextButtonClicked={(step) => this.onNextClicked(step)}
             onPreviousButtonClicked={(step) => this.onPrevClicked(step)}
-            onFinishButtonClicked={() => this.settingsModalClose()}
+            onFinishButtonClicked={() => this.chemicalSettingsFinished()}
             onChemicalValueChanges={(event, ele) =>
               this.changeChemicalValue(event.target.value, ele)
+            }
+            chemicalPartValueChanged={(ele) =>
+              this.chemicalPartValueChanged(ele)
             }
           />
         </div>
@@ -95,6 +111,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateChemicalValue: (data) => dispatch(updateChemicalValue(data)),
     resetState: () => dispatch(resetState()),
+    updateChemicalPartValue: (data) => dispatch(updateChemicalPartValue(data)),
   };
 };
 

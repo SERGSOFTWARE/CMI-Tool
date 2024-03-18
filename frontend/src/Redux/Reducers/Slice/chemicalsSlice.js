@@ -26,12 +26,16 @@ export const chemicalsSlice = createSlice({
         state.value[index].value = action.payload.value;
       }
     },
+    updateChemicalPartValue: (state, action) => {
+      state.chemicalPart = action.payload.element;
+    },
     resetState: () => {
       return chemicalState;
     },
   },
 });
 
-export const { updateChemicalValue, resetState } = chemicalsSlice.actions;
+export const { updateChemicalValue, resetState, updateChemicalPartValue } =
+  chemicalsSlice.actions;
 
 export default chemicalsSlice.reducer;

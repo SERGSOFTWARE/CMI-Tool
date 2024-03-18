@@ -14,11 +14,13 @@ export default function ModalStepper({
   totalSteps = 2,
   onFinishButtonClicked,
   onChemicalValueChanges,
+  chemicalPartValueChanged,
+  title,
 }) {
   return (
     <div>
       <ModalBox
-        title={"Chemical Values"}
+        title={step === 1 ? "Chemical Values" : "Select Chemical Part"}
         open={modalOpen}
         handleClose={() => settingsModalClose()}
         step={step}
@@ -31,7 +33,11 @@ export default function ModalStepper({
               dropDownOptions={chemicalData.value}
             />
           ) : (
-            <PartsModalBody options={chemicalData.chemicalPartsOptions} />
+            <PartsModalBody
+              selected={chemicalData.chemicalPart}
+              options={chemicalData.chemicalPartsOptions}
+              handleClick={(ele) => chemicalPartValueChanged(ele)}
+            />
           )
         }
         bottomButtonComponent={
