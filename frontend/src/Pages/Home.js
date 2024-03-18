@@ -8,6 +8,7 @@ import {
 } from "../Redux/Reducers/Slice/chemicalsSlice";
 import TextFieldsModalBody from "../Components/Molecules/TextFieldsModalBody";
 import TextBox from "../Components/Atoms/TextBox";
+import PartsModalBody from "../Components/Molecules/PartsModalBody";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -49,8 +50,11 @@ class Home extends Component {
             title={"Chemical Values"}
             open={settingsModalOpen}
             handleClose={() => this.settingsModalClose()}
+            // bodyComponent={
+            //   <TextFieldsModalBody dropDownOptions={chemicalData.value} />
+            // }
             bodyComponent={
-              <TextFieldsModalBody dropDownOptions={chemicalData.value} />
+              <PartsModalBody options={chemicalData.chemicalPartsOptions} />
             }
           />
         </div>

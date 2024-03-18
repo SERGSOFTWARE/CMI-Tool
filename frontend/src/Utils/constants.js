@@ -113,3 +113,12 @@ export const CHEMICAL_ITEMS = [
   { label: "Sucrose", value: 0, key: 112 },
   { label: "Ethanol", value: 0, key: 113 },
 ];
+
+export const CHEMICAL_PARTS = [
+  { key: "0,1", value: "0,1" },
+  { key: "2,2", value: "2,2" },
+  { key: "3,3", value: "3,3" },
+  { key: "4,4", value: "4,4" },
+  { key: "5,5", value: "5,5" },
+  { key: "6,9", value: "6,9" },
+];

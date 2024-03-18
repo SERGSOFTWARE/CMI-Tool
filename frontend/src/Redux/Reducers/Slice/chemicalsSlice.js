@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CHEMICAL_ITEMS } from "../../../Utils/constants";
+import { CHEMICAL_ITEMS, CHEMICAL_PARTS } from "../../../Utils/constants";
 
 const chemicalObjectsInitialState = CHEMICAL_ITEMS.map((item) => ({
   label: item.label,
@@ -9,6 +9,8 @@ const chemicalObjectsInitialState = CHEMICAL_ITEMS.map((item) => ({
 
 const chemicalState = {
   value: chemicalObjectsInitialState,
+  chemicalPart: CHEMICAL_PARTS[0],
+  chemicalPartsOptions: CHEMICAL_PARTS,
 };
 
 export const chemicalsSlice = createSlice({
@@ -19,9 +21,7 @@ export const chemicalsSlice = createSlice({
       console.log("Action", action);
     },
     resetState: () => {
-      return {
-        value: chemicalObjectsInitialState,
-      };
+      return chemicalState;
     },
   },
 });

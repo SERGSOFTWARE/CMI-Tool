@@ -122,15 +122,18 @@ body {
   margin-top: 16px;
   padding-top: 26px;
   overflow-y: auto;
+  align-items: center;
 }
 
 .drop-down-modal-root {
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: space-around;
-  // flex-wrap: wrap;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.parts-modal-root {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
   gap: 10px;
 }
 
@@ -179,3 +182,8 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 220px;
 }
 // TEXTFIELD - END
+
+// OVAL CHIPS
+.oval-chips-root {
+  min-height: 40px !important;
+}
