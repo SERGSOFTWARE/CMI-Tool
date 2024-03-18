@@ -3,14 +3,13 @@ import Typography from "./Typography";
 import Modal from "@mui/material/Modal";
 import { Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import DropDownModal from "../Molecules/TextFieldsModalBody";
-import Button from "./Button";
 
 export default function ModalBox({
   title = "title",
   open,
   handleClose,
   bodyComponent,
+  bottomButtonComponent,
 }) {
   return (
     <div>
@@ -33,9 +32,7 @@ export default function ModalBox({
             </div>
           </div>
           <div className="modal-body-root">{bodyComponent}</div>
-          <div className="modal-button-container">
-            <Button label="Next" />
-          </div>
+          <div className="modal-button-container">{bottomButtonComponent}</div>
         </Box>
       </Modal>
     </div>

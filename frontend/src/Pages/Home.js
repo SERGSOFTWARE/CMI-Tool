@@ -1,43 +1,64 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import HeaderBar from "../Components/Organisms/HeaderBar";
-import ModalBox from "../Components/Atoms/ModalBox";
 import {
   updateChemicalValue,
   resetState,
 } from "../Redux/Reducers/Slice/chemicalsSlice";
-import TextFieldsModalBody from "../Components/Molecules/TextFieldsModalBody";
-import TextBox from "../Components/Atoms/TextBox";
-import PartsModalBody from "../Components/Molecules/PartsModalBody";
+import ModalStepper from "../Components/Organisms/ModalStepper";
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       settingsModalOpen: false,
+      modalStepperStep: 1,
     };
   }
 
   componentDidMount = () => {};
   componentWillUnmount = () => {};
 
+  // On settings modal closed clicked
   settingsModalClose = () => {
     this.setState({
       settingsModalOpen: false,
+      modalStepperStep: 1,
     });
   };
 
+  // On settings modal open clicked
   settingsModalOpen = () => {
     this.setState({
       settingsModalOpen: true,
     });
   };
 
+  // On Next button clicked from modal
+  onNextClicked = (step) => {
+    this.setState({
+      modalStepperStep: step + 1,
+    });
+  };
+
+  // On Prev button clicked from modal
+  onPrevClicked = (step) => {
+    this.setState({
+      modalStepperStep: step - 1,
+    });
+  };
+
+  // On App reset button clicked from toolbar
   onResetClicked = () => {
     this.props.resetState();
   };
 
+  // on chemical value Changed
+  changeChemicalValue = (value, element) => {
+    this.props.updateChemicalValue({ value: value, element: element });
+  };
+
   render() {
-    const { settingsModalOpen } = this.state;
+    const { settingsModalOpen, modalStepperStep } = this.state;
     const { chemicalData } = this.props;
     return (
       <>
@@ -46,15 +67,16 @@ class Home extends Component {
           onResetClicked={() => this.onResetClicked()}
         />
         <div className="home-component">
-          <ModalBox
-            title={"Chemical Values"}
-            open={settingsModalOpen}
-            handleClose={() => this.settingsModalClose()}
-            // bodyComponent={
-            //   <TextFieldsModalBody dropDownOptions={chemicalData.value} />
-            // }
-            bodyComponent={
-              <PartsModalBody options={chemicalData.chemicalPartsOptions} />
+          <ModalStepper
+            modalOpen={settingsModalOpen}
+            settingsModalClose={() => this.settingsModalClose()}
+            chemicalData={chemicalData}
+            step={modalStepperStep}
+            onNextButtonClicked={(step) => this.onNextClicked(step)}
+            onPreviousButtonClicked={(step) => this.onPrevClicked(step)}
+            onFinishButtonClicked={() => this.settingsModalClose()}
+            onChemicalValueChanges={(event, ele) =>
+              this.changeChemicalValue(event.target.value, ele)
             }
           />
         </div>

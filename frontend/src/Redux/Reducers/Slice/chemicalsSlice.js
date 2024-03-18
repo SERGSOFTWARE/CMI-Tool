@@ -18,7 +18,13 @@ export const chemicalsSlice = createSlice({
   initialState: chemicalState,
   reducers: {
     updateChemicalValue: (state, action) => {
-      console.log("Action", action);
+      const updateElementKey = action.payload.element.key;
+      const index = state.value.findIndex(
+        (ele) => ele.key === updateElementKey
+      );
+      if (index !== -1) {
+        state.value[index].value = action.payload.value;
+      }
     },
     resetState: () => {
       return chemicalState;
