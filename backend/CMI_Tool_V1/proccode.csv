@@ -1,0 +1,172 @@
+,,,
+SMR H2,1,0,0
+OIl H2,1,1,0
+Coal H2,1,2,0
+SMR Methanol,1,3,0
+Oil Methanol,1,4,0
+Coal Methanol,1,5,0
+Haber Bosch with SMR H2,1,6,0
+Haber Bosch with oil H2,1,7,0
+Haber Bosch with Coal H2,1,8,0
+Steam Cracker,1,9,0
+Catalytic Reforming,1,10,0
+Toluene dehydrogenation,1,11,0
+Toluene disproportionation,1,12,0
+Metathesis,1,13,0
+Propane Dehydrogenation,1,14,0
+Methanol to Olefins,1,15,0
+ethylhexanol,0,16,0
+acetic acid,0,17,0
+acrylonitrile,0,18,0
+abs,0,19,0
+Adipic acid,0,20,0
+Adiponitrile,0,21,0
+ammonium nitrate,0,22,0
+ammonium sulphate,0,23,0
+anniline,0,24,0
+bisPhenola,0,25,0
+calcium ammonium nitrate,0,26,0
+caprolactam,0,27,0
+chloroprene,0,28,0
+diammonium phosphate,0,29,0
+DMT,0,30,0
+dioctyl phthalate,0,31,0
+Ethylene Chlorohydrin,0,32,0
+Ethylene Oxide,0,33,0
+Ethylene Glycol,0,34,0
+formaldehyde,0,35,0
+hexamethylenediamine,0,36,0
+isophthalic acid,0,37,0
+maleic anhydride via benzene,0,38,0
+maleic anhydride via butane,0,39,0
+melamine,0,40,0
+methyl methacrylate,0,41,0
+methyl tertbutyl ether,0,42,0
+methylene diphenyl isocyanate,0,43,0
+monoammonium phosphate,0,44,0
+nitric acid,0,45,0
+nitrile butadiene,0,46,0
+phenol and acetone,0,47,0
+phthalic anhydride,0,48,0
+polyacrylonitrile,0,49,0
+polyamide 6,0,50,0
+polyamide 66,0,51,0
+polybutadiene,0,52,0
+polycarbonate,0,53,0
+HDPE,0,54,0
+LLDPE,0,55,0
+LDPE,0,56,0
+pet dmt amorphous,0,57,0
+pet dmt bottles,0,58,0
+pet tpa amorphous,0,59,0
+pet tpa bottles,0,60,0
+PMMA beads,0,61,0
+PMMA sheets,0,62,0
+polypropylene,0,63,0
+propylene oxide,0,64,0
+polystyrene,0,65,0
+polyvinyl acetate,0,66,0
+polyvinyl chloride,0,67,0
+styrene,0,68,0
+Styreneacylonitrile,0,69,0
+Styrenebutadiene,0,70,0
+terephthalic acid,0,71,0
+toluene diisocyanate,0,72,0
+urea,0,73,0
+urea ammonium nitrate,0,74,0
+vinyl acetate,0,75,0
+vinyl chloride,0,76,0
+Coal Energy,1,77,0
+NG Energy,1,78,0
+Coal Elec,1,79,0
+NG Elec,1,80,0
+Solar Elec,1,81,1
+Hydro elec,1,82,1
+Wind elec,1,83,1
+Ethylbenzene,0,136,0
+Acrylic acid,0,137,0
+Nitrobenzene,0,138,0
+Isopropanol,0,139,0
+Butyraldehyde,0,140,0
+n-Butanol,0,141,0
+EVA copolymer,0,142,0
+EPDM1,0,143,0
+EPDM2,0,144,0
+EPDM3,0,145,0
+ENB,0,146,0
+"Trans 1,4 hexadiene",0,147,0
+Epichlorohydrin1,0,148,0
+Allyl chloride,0,149,0
+Hypochlorous acid,0,150,0
+Chloralkali,0,151,0
+Hydrochloric acid,0,152,0
+Epichlorohydrin2,0,153,0
+Glycerol,0,154,0
+Propylene Glycol,0,155,0
+Isobutanol,0,156,0
+"1,4 butanediol",0,157,0
+Acetylene,0,158,0
+BADGE/DGEBA,0,159,0
+Acetaldehyde,0,160,0
+Diethanolamine (DEA),0,161,0
+Ethyl acetate,0,162,0
+2-butoxyethanol/EGBE,0,163,0
+Ethylene dichloride,0,164,0
+2 ethylhexyl acrylate,0,165,0
+n butyl acrylate,0,166,0
+ethyl acrylate,0,167,0
+methyl acrylate,0,168,0
+dinitrotoluene,0,169,0
+diethylene glycol,0,170,0
+dichloropropylene,0,171,0
+Hydrogen cyanide1,0,172,0
+Hydrogen cyanide2,0,173,0
+Acrolein,0,174,0
+Allyl alcohol,0,175,0
+Benzoic acid,0,176,0
+Carbon disulphide,0,177,0
+Carbon tetrachloride,0,178,0
+Chlorobenzene,0,179,0
+Chloroform,0,180,0
+Crotonaldehyde,0,181,0
+Cyclohexanol,0,182,0
+Cyclohexanone,0,183,0
+Peracetic acid,0,184,0
+Perchloroethylene1,0,185,0
+Perchloroethylene2,0,186,0
+Perchloroethylene3,0,187,0
+Phosgene,0,188,0
+Toluene diamine,0,189,0
+Trichloroethylene,0,190,0
+Triethylene glycol,0,191,0
+Sulphuric acid,0,192,0
+Hydroxyl amine,0,193,0
+Nitrous acid,0,194,0
+Sodium nitrite,0,195,0
+Nitrogen dioxide,0,196,0
+Nitric oxide,0,197,0
+Potassium hydroxide,0,198,0
+Calcium hydroxide,0,199,0
+Phosphoric acid,0,200,0
+PBT-TPA,0,201,0
+PBT-DMT,0,202,0
+Caprolactone,0,203,0
+PCL,0,204,0
+Pentaerithrytol,0,205,0
+Glyptal,0,206,0
+SMA,0,207,0
+PEG,0,208,0
+Tetrahydrofuran,0,209,0
+PTMEG,0,210,0
+PPG,0,211,0
+PBO,0,212,0
+butylene oxide,0,213,0
+PA/POM,0,214,0
+POM copolymer,0,215,0
+trioxane,0,216,0
+PPO,0,217,0
+"2,6 dimethylphenol",0,218,0
+Ethanol,1,219,0
+Corn sucrose,1,220,0
+Sugacane sucrose,1,221,0
+Sugarbeet sucrose,1,222,0
