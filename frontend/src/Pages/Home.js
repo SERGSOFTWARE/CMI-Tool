@@ -7,13 +7,15 @@ import {
   updateChemicalPartValue,
 } from "../Redux/Reducers/Slice/chemicalsSlice";
 import ModalStepper from "../Components/Organisms/ModalStepper";
+import SankeyDiagram from "../Components/Organisms/Graph/SankeyDiagram";
+import Loader from "../Components/Atoms/Loader";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       settingsModalOpen: false,
-      modalStepperStep: 1,
+      isLoading: false,
     };
   }
 
@@ -24,7 +26,6 @@ class Home extends Component {
   settingsModalClose = () => {
     this.setState({
       settingsModalOpen: false,
-      modalStepperStep: 1,
     });
   };
 
@@ -32,20 +33,6 @@ class Home extends Component {
   settingsModalOpen = () => {
     this.setState({
       settingsModalOpen: true,
-    });
-  };
-
-  // On Next button clicked from modal
-  onNextClicked = (step) => {
-    this.setState({
-      modalStepperStep: step + 1,
-    });
-  };
-
-  // On Prev button clicked from modal
-  onPrevClicked = (step) => {
-    this.setState({
-      modalStepperStep: step - 1,
     });
   };
 
@@ -71,8 +58,9 @@ class Home extends Component {
   };
 
   render() {
-    const { settingsModalOpen, modalStepperStep } = this.state;
+    const { settingsModalOpen, isLoading } = this.state;
     const { chemicalData } = this.props;
+    console.log("changedFields :", chemicalData.changedFields);
     return (
       <>
         <HeaderBar
@@ -80,13 +68,21 @@ class Home extends Component {
           onResetClicked={() => this.onResetClicked()}
         />
         <div className="home-component">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "row",
+            }}
+          >
+            <SankeyDiagram />
+          </div>
           <ModalStepper
             modalOpen={settingsModalOpen}
             settingsModalClose={() => this.settingsModalClose()}
+            onResetClicked={() => this.onResetClicked()}
             chemicalData={chemicalData}
-            step={modalStepperStep}
-            onNextButtonClicked={(step) => this.onNextClicked(step)}
-            onPreviousButtonClicked={(step) => this.onPrevClicked(step)}
             onFinishButtonClicked={() => this.chemicalSettingsFinished()}
             onChemicalValueChanges={(value, ele) =>
               this.changeChemicalValue(value, ele)
@@ -96,6 +92,12 @@ class Home extends Component {
             }
           />
         </div>
+        <Loader
+          isOpen={isLoading}
+          stopLoader={() => {
+            this.setState({ loading: false });
+          }}
+        />
       </>
     );
   }

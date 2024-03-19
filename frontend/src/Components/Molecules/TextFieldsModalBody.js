@@ -31,7 +31,7 @@ export default function TextFieldsModalBody({
       <div className="drop-down-modal-root">
         {dropDownOptions?.map((ele, index) => {
           return (
-            <TextBox
+            <TextBox 
               key={index}
               label={ele.label}
               value={ele.value}

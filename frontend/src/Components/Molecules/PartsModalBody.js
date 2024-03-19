@@ -2,7 +2,6 @@ import React from "react";
 import OvalChips from "../Atoms/OvalChips";
 
 export default function PartsModalBody({ options, selected, handleClick }) {
-  console.log("selected : ", selected);
   return (
     <>
       <div className="parts-modal-root">
@@ -13,7 +12,7 @@ export default function PartsModalBody({ options, selected, handleClick }) {
             <OvalChips
               label={ele.value}
               id={`oval-chip-field-${index}`}
-              className={isSelected ? "oval-chip-Selected" : ""}
+              className={isSelected ? "oval-chip-Selected oval-chip-margin-rigth" : "oval-chip-margin-rigth"}
               handleClick={() => handleClick(ele)}
             />
           );

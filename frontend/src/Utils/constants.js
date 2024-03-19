@@ -842,3 +842,11 @@ export const CHEMICAL_PARTS = [
   { key: "5,5", value: "5,5" },
   { key: "6,9", value: "6,9" },
 ];
+
+const body = {
+  json_data: {
+    Ethanol: 10,
+  },
+  input1: 1,
+  input2: 2,
+};

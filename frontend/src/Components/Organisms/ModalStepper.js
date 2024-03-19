@@ -8,65 +8,42 @@ export default function ModalStepper({
   modalOpen,
   settingsModalClose,
   chemicalData,
-  step,
-  onNextButtonClicked,
-  onPreviousButtonClicked,
-  totalSteps = 2,
   onFinishButtonClicked,
   onChemicalValueChanges,
   chemicalPartValueChanged,
-  title,
+  onResetClicked,
 }) {
   return (
     <div>
       <ModalBox
-        title={step === 1 ? "Chemical Values" : "Select Chemical Part"}
+        title={"CHEMICAL VALUES"}
+        subBodyTitle={"SELECT CHEMICAL PART"}
         open={modalOpen}
         handleClose={() => settingsModalClose()}
-        step={step}
+        onResetClicked={() => onResetClicked()}
         bodyComponent={
-          step === 1 ? (
-            <TextFieldsModalBody
-              onChemicalValueChanges={(event, ele) =>
-                onChemicalValueChanges(event, ele)
-              }
-              dropDownOptions={chemicalData.value}
-            />
-          ) : (
-            <PartsModalBody
-              selected={chemicalData.chemicalPart}
-              options={chemicalData.chemicalPartsOptions}
-              handleClick={(ele) => chemicalPartValueChanged(ele)}
-            />
-          )
+          <TextFieldsModalBody
+            onChemicalValueChanges={(event, ele) =>
+              onChemicalValueChanges(event, ele)
+            }
+            dropDownOptions={chemicalData.value}
+          />
+        }
+        subBodyComponent={
+          <PartsModalBody
+            selected={chemicalData.chemicalPart}
+            options={chemicalData.chemicalPartsOptions}
+            handleClick={(ele) => chemicalPartValueChanged(ele)}
+          />
         }
         bottomButtonComponent={
           <>
-            {step !== 1 && (
-              <Button
-                onClick={() => {
-                  onPreviousButtonClicked(step);
-                }}
-                label="Previous"
-                className="modal-previos-button-style"
-              />
-            )}
-            {step !== totalSteps && (
-              <Button
-                onClick={() => {
-                  onNextButtonClicked(step);
-                }}
-                label="Next"
-              />
-            )}
-            {step === totalSteps && (
-              <Button
-                onClick={() => {
-                  onFinishButtonClicked(step);
-                }}
-                label="Finish"
-              />
-            )}
+            <Button
+              onClick={() => {
+                onFinishButtonClicked();
+              }}
+              label="GET RESULTS"
+            />
           </>
         }
       />
