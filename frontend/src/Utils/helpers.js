@@ -35,22 +35,5 @@ export const SANKEY_BUTTON_TO_REMOVE = [
 ];
 
 export const rgbStringToObject = (rgbString) => {
-  if (rgbString.includes("rgb(")) {
-    const matches = rgbString.match(/\d+/g);
-    if (matches.length !== 3) {
-      throw new Error("Invalid RGB string format");
-    }
-    return {
-      r: parseInt(matches[0]),
-      g: parseInt(matches[1]),
-      b: parseInt(matches[2]),
-    };
-  } else {
-    if (rgbString === "indianred") {
-      return "#ff8080";
-    } else if (rgbString === "darkblue") {
-      return "#668cff";
-    }
-    return rgbString;
-  }
+  return rgbString;
 };

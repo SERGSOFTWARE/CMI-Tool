@@ -324,6 +324,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: inline-grid;
   padding: 5px;
 }
+
 .loader:before {
   content: "";
   height: 40px;
@@ -341,8 +342,11 @@ input[type="number"]::-webkit-outer-spin-button {
     background-position: -200% 0, -100% 100%;
   }
 }
+
 .loader-text {
   font-size: 1.2rem;
+  color: rgb(12, 86, 27) !important;
+  font-weight: bold;
 }
 // LOADING ANNIMATION
 

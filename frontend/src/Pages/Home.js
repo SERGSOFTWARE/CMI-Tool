@@ -20,16 +20,20 @@ class Home extends Component {
     super(props);
     this.state = {
       settingsModalOpen: false,
-      isLoading: false,
-      myData: [],
+      isLoading: true,
+      sankeyGraphData: [],
     };
   }
 
   componentDidMount = () => {
-    const { resultData } = this.props;
-    this.setState({ isLoading: true }, () => {
-      this.getDefaultResultsForSankey();
-    });
+    const { resultData, chemicalData } = this.props;
+    if (chemicalData?.changedFields?.length > 0) {
+      // CALL POST API
+    } else {
+      this.setState({ isLoading: true }, () => {
+        this.getDefaultResultsForSankey();
+      });
+    }
   };
   componentWillUnmount = () => {};
 
@@ -37,9 +41,9 @@ class Home extends Component {
     getDefaultResults(0, 1)
       .then((res) => {
         if (res && res.sankeyFig) {
-          this.props.updateResults(res.sankeyFig);
+          // this.props.updateResults(res.sankeyFig);
           this.setState({
-            myData: {
+            sankeyGraphData: {
               linkSource: res.sankeyFig.link.source,
               linkTarget: res.sankeyFig.link.target,
               linkValue: res.sankeyFig.link.value,
@@ -94,12 +98,12 @@ class Home extends Component {
   // on finish clicked on chemical settings modal
   chemicalSettingsFinished = (element) => {
     this.settingsModalClose();
-    // CALL API HERE
+    // CALL POST API HERE
   };
 
   render() {
-    const { settingsModalOpen, isLoading, myData } = this.state;
-    const { chemicalData } = this.props;
+    const { settingsModalOpen, isLoading, sankeyGraphData } = this.state;
+    const { chemicalData, resultData } = this.props;
     return (
       <>
         <HeaderBar
@@ -115,7 +119,7 @@ class Home extends Component {
               flexDirection: "row",
             }}
           >
-            <SankeyDiagram data={myData} />
+            <SankeyDiagram data={sankeyGraphData} />
           </div>
           <ModalStepper
             modalOpen={settingsModalOpen}
