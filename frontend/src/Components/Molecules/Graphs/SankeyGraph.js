@@ -14,6 +14,7 @@ export default function SankeyGraph({
   linkTarget = [],
   linkValue = [],
   linkColour = [],
+  nodeColor = [],
   margin = { r: 100, l: 10, b: 60, t: 0, pad: 2 },
   id,
   width,
@@ -32,12 +33,14 @@ export default function SankeyGraph({
           {
             type: "sankey",
             orientation: "h",
+            legendwidth: 20,
             node: {
-              pad: nodePad,
+              pad: 12,
               thickness: nodeThickness,
               line: {
                 width: 1,
               },
+              color: nodeColor,
               label: nodeLabel,
             },
             valuesuffix: " tonne",
@@ -46,6 +49,9 @@ export default function SankeyGraph({
               target: linkTarget,
               value: linkValue,
               color: linkColour,
+              line: {
+                width: 0,
+              },
             },
           },
         ]}

@@ -6,9 +6,14 @@ import {
   resetState,
   updateChemicalPartValue,
 } from "../Redux/Reducers/Slice/chemicalsSlice";
+import {
+  updateResults,
+  resetResultState,
+} from "../Redux/Reducers/Slice/resultSlice";
 import ModalStepper from "../Components/Organisms/ModalStepper";
 import SankeyDiagram from "../Components/Organisms/Graph/SankeyDiagram";
 import Loader from "../Components/Atoms/Loader";
+import { getDefaultResults } from "../Services";
 
 class Home extends Component {
   constructor(props) {
@@ -16,11 +21,42 @@ class Home extends Component {
     this.state = {
       settingsModalOpen: false,
       isLoading: false,
+      myData: [],
     };
   }
 
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    const { resultData } = this.props;
+    this.setState({ isLoading: true }, () => {
+      this.getDefaultResultsForSankey();
+    });
+  };
   componentWillUnmount = () => {};
+
+  getDefaultResultsForSankey = () => {
+    getDefaultResults(0, 1)
+      .then((res) => {
+        if (res && res.sankeyFig) {
+          this.props.updateResults(res.sankeyFig);
+          this.setState({
+            myData: {
+              linkSource: res.sankeyFig.link.source,
+              linkTarget: res.sankeyFig.link.target,
+              linkValue: res.sankeyFig.link.value,
+              linkColour: res.sankeyFig.link.color,
+              nodeLabel: res.sankeyFig.node.label,
+              nodePad: res.sankeyFig.node.pad,
+              nodeColor: res.sankeyFig.node.color,
+              nodeThickness: res.sankeyFig.node.thickness,
+            },
+          });
+        }
+        this.setState({ isLoading: false });
+      })
+      .catch((error) => {
+        this.setState({ isLoading: false });
+      });
+  };
 
   // On settings modal closed clicked
   settingsModalClose = () => {
@@ -38,7 +74,11 @@ class Home extends Component {
 
   // On App reset button clicked from toolbar
   onResetClicked = () => {
+    this.setState({ isLoading: true }, () => {
+      this.getDefaultResultsForSankey();
+    });
     this.props.resetState();
+    this.props.resetResultState();
   };
 
   // on chemical value Changed
@@ -58,9 +98,8 @@ class Home extends Component {
   };
 
   render() {
-    const { settingsModalOpen, isLoading } = this.state;
+    const { settingsModalOpen, isLoading, myData } = this.state;
     const { chemicalData } = this.props;
-    console.log("changedFields :", chemicalData.changedFields);
     return (
       <>
         <HeaderBar
@@ -76,7 +115,7 @@ class Home extends Component {
               flexDirection: "row",
             }}
           >
-            <SankeyDiagram />
+            <SankeyDiagram data={myData} />
           </div>
           <ModalStepper
             modalOpen={settingsModalOpen}
@@ -106,6 +145,7 @@ class Home extends Component {
 const mapStateToProps = (state) => {
   return {
     chemicalData: state.chemicalData,
+    resultData: state.resultData,
   };
 };
 
@@ -113,7 +153,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateChemicalValue: (data) => dispatch(updateChemicalValue(data)),
     resetState: () => dispatch(resetState()),
+    resetResultState: () => dispatch(resetResultState()),
     updateChemicalPartValue: (data) => dispatch(updateChemicalPartValue(data)),
+    updateResults: (data) => dispatch(updateResults(data)),
   };
 };
 
