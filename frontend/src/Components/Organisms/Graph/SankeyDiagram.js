@@ -28,7 +28,7 @@ export default function SankeyDiagram({ data }) {
 
   return (
     <>
-      {data?.linkValue.length > 0 ? (
+      {data?.linkValue?.length > 0 ? (
         <SankeyGraph
           id={"sankey-plot"}
           nodeLabel={data?.nodeLabel}
@@ -37,7 +37,7 @@ export default function SankeyDiagram({ data }) {
           linkSource={data?.linkSource}
           linkTarget={data?.linkTarget}
           linkValue={data?.linkValue}
-          linkColour={data?.linkColour}
+          linkColor={data?.linkColor}
           nodeColor={data?.nodeColor}
           width={barGraphWidth}
           height={barGraphHeight}

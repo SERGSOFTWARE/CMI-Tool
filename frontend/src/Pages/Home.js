@@ -43,7 +43,7 @@ class Home extends Component {
               linkSource: res.sankeyFig.link.source,
               linkTarget: res.sankeyFig.link.target,
               linkValue: res.sankeyFig.link.value,
-              linkColour: res.sankeyFig.link.color,
+              linkColor: res.sankeyFig.link.color,
               nodeLabel: res.sankeyFig.node.label,
               nodePad: res.sankeyFig.node.pad,
               nodeColor: res.sankeyFig.node.color,

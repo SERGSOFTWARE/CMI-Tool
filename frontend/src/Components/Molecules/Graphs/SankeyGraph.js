@@ -13,7 +13,7 @@ export default function SankeyGraph({
   linkSource = [],
   linkTarget = [],
   linkValue = [],
-  linkColour = [],
+  linkColor = [],
   nodeColor = [],
   margin = { r: 100, l: 10, b: 60, t: 0, pad: 2 },
   id,
@@ -48,7 +48,7 @@ export default function SankeyGraph({
               source: linkSource,
               target: linkTarget,
               value: linkValue,
-              color: linkColour,
+              color: linkColor,
               line: {
                 width: 0,
               },

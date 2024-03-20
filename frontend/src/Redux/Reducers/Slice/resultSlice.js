@@ -6,7 +6,7 @@ const resultState = {
     linkSource: [],
     linkTarget: [],
     linkValue: [],
-    linkColour: [],
+    linkColor: [],
     nodeLabel: [],
     nodePad: 0,
     nodeColor: [],
@@ -22,7 +22,7 @@ export const resultSlice = createSlice({
       state.sankeyFigure["linkSource"] = action.payload?.link?.source || [];
       state.sankeyFigure["linkTarget"] = action.payload?.link?.target || [];
       state.sankeyFigure["linkValue"] = action.payload?.link?.value || [];
-      state.sankeyFigure["linkColour"] =
+      state.sankeyFigure["linkColor"] =
         action.payload?.link?.color.map(rgbStringToObject) || [];
       state.sankeyFigure["nodeLabel"] = action.payload?.node?.label || [];
       state.sankeyFigure["nodePad"] = action.payload?.node?.pad || [];
