@@ -33,7 +33,7 @@ function HeaderBar({ onSettingsClicked, onResetClicked }) {
               />
             </Tooltip>
           </div>
-          <div>
+          {/* <div>
             <Tooltip title={"Reset"} placement="bottom">
               <RotateLeftIcon
                 onClick={() => {
@@ -42,7 +42,7 @@ function HeaderBar({ onSettingsClicked, onResetClicked }) {
                 className="tool-bar-setting-icon icon-curser-pointer"
               />
             </Tooltip>
-          </div>
+          </div> */}
         </div>
       </Toolbar>
     </AppBar>

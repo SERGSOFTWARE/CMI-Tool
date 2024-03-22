@@ -14,14 +14,18 @@ import ModalStepper from "../Components/Organisms/ModalStepper";
 import SankeyDiagram from "../Components/Organisms/Graph/SankeyDiagram";
 import Loader from "../Components/Atoms/Loader";
 import { getDefaultResults } from "../Services";
+import AlertBar from "../Components/Atoms/AlertBar";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       settingsModalOpen: false,
-      isLoading: true,
+      isLoading: false,
       sankeyGraphData: [],
+      isSuccessAlertOpen: false,
+      isResetAlertOpen: false,
+      isFailureAlertOpen: false,
     };
   }
 
@@ -55,10 +59,10 @@ class Home extends Component {
             },
           });
         }
-        this.setState({ isLoading: false });
+        this.setState({ isLoading: false, isSuccessAlertOpen: true });
       })
       .catch((error) => {
-        this.setState({ isLoading: false });
+        this.setState({ isLoading: false, isFailureAlertOpen: true });
       });
   };
 
@@ -78,11 +82,13 @@ class Home extends Component {
 
   // On App reset button clicked from toolbar
   onResetClicked = () => {
-    this.setState({ isLoading: true }, () => {
-      this.getDefaultResultsForSankey();
+    // this.setState({ isLoading: true }, () => {
+    //   this.getDefaultResultsForSankey();
+    // });
+    this.setState({ isResetAlertOpen: true }, () => {
+      this.props.resetState();
+      this.props.resetResultState();
     });
-    this.props.resetState();
-    this.props.resetResultState();
   };
 
   // on chemical value Changed
@@ -101,9 +107,26 @@ class Home extends Component {
     // CALL POST API HERE
   };
 
+  // fun to close snack bar - START
+  closeAlertBar = () => {
+    this.setState({
+      isFailureAlertOpen: false,
+      isSuccessAlertOpen: false,
+      isResetAlertOpen: false,
+    });
+  };
+  // fun to close snack bar - END
+
   render() {
-    const { settingsModalOpen, isLoading, sankeyGraphData } = this.state;
-    const { chemicalData, resultData } = this.props;
+    const {
+      settingsModalOpen,
+      isLoading,
+      sankeyGraphData,
+      isFailureAlertOpen,
+      isResetAlertOpen,
+      isSuccessAlertOpen,
+    } = this.state;
+    const { chemicalData } = this.props;
     return (
       <>
         <HeaderBar
@@ -139,6 +162,30 @@ class Home extends Component {
           isOpen={isLoading}
           stopLoader={() => {
             this.setState({ loading: false });
+          }}
+        />
+        <AlertBar
+          type="success"
+          isOpen={isSuccessAlertOpen}
+          message="Results generated successfully!"
+          handleClose={() => {
+            this.closeAlertBar();
+          }}
+        />
+        <AlertBar
+          type="success"
+          isOpen={isResetAlertOpen}
+          message="All values reset to default."
+          handleClose={() => {
+            this.closeAlertBar();
+          }}
+        />
+        <AlertBar
+          type="error"
+          isOpen={isFailureAlertOpen}
+          message={"Error fetching results, Please try again!"}
+          handleClose={() => {
+            this.closeAlertBar();
           }}
         />
       </>
