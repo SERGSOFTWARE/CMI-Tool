@@ -13,8 +13,9 @@ import {
 import ModalStepper from "../Components/Organisms/ModalStepper";
 import SankeyDiagram from "../Components/Organisms/Graph/SankeyDiagram";
 import Loader from "../Components/Atoms/Loader";
-import { getDefaultResults } from "../Services";
+import { getValueChangeResults } from "../Services";
 import AlertBar from "../Components/Atoms/AlertBar";
+import { getChangedFields } from "../Utils/helpers";
 
 class Home extends Component {
   constructor(props) {
@@ -30,22 +31,28 @@ class Home extends Component {
   }
 
   componentDidMount = () => {
-    const { resultData, chemicalData } = this.props;
-    if (chemicalData?.changedFields?.length > 0) {
-      // CALL POST API
-    } else {
-      this.setState({ isLoading: true }, () => {
-        this.getDefaultResultsForSankey();
-      });
-    }
+    this.setState({ isLoading: true }, () => {
+      this.getDefaultResultsForSankey();
+    });
   };
+
   componentWillUnmount = () => {};
 
   getDefaultResultsForSankey = () => {
-    getDefaultResults(0, 1)
+    const { chemicalData } = this.props;
+    let formData = {};
+    if (chemicalData?.changedFields?.length > 0) {
+      formData = getChangedFields(
+        chemicalData?.value,
+        chemicalData?.changedFields
+      );
+    }
+    const parts = chemicalData?.chemicalPart?.key?.split(",");
+    const input1 = parseInt(parts[0]);
+    const input2 = parseInt(parts[1]);
+    getValueChangeResults({ data: formData, input1: input1, input2: input2 })
       .then((res) => {
         if (res && res.sankeyFig) {
-          // this.props.updateResults(res.sankeyFig);
           this.setState({
             sankeyGraphData: {
               linkSource: res.sankeyFig.link.source,
@@ -104,7 +111,7 @@ class Home extends Component {
   // on finish clicked on chemical settings modal
   chemicalSettingsFinished = (element) => {
     this.settingsModalClose();
-    // CALL POST API HERE
+    this.getDefaultResultsForSankey();
   };
 
   // fun to close snack bar - START
