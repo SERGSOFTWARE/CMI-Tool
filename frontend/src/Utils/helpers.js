@@ -49,3 +49,12 @@ export const getChangedFields = (objectsArray, keysArray) => {
 
   return matchingValues;
 };
+
+export const isObjectEmpty = (obj) => {
+  if (obj !== null && typeof obj === "object") {
+    var keys = Object.keys(obj);
+    return keys.length === 0;
+  } else {
+    return true;
+  }
+};
