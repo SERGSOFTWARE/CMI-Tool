@@ -5,7 +5,7 @@ WORKDIR /build
 ENV JULIA_PATH /usr/local/julia
 ENV PATH $JULIA_PATH/bin:$PATH
 
-RUN julia -e 'using Pkg; Pkg.add(["JuMP","HiGHS", "XLSX"])'
+RUN julia -e 'using Pkg; Pkg.add(["JuMP","XLSX","HiGHS"])'
 RUN mv ~/.julia /build/julia-artifacts/
 
 #python version 3.11
