@@ -59,12 +59,12 @@ COPY $BACKEND_PATH/package.json /app
 
 RUN npm install
 
-# COPY $BACKEND_PATH/ /app
+COPY $BACKEND_PATH/ /app
 
-# COPY ./env.sh .
+COPY ./env.sh .
 # COPY ./.env .
 
-# RUN chmod +x env.sh
+RUN chmod +x env.sh
 
 # CMD ["/bin/sh", "-c", "/app/env.sh && mv ./env-runtime-config.js /app/build && npm start"]
-CMD ["/bin/sh"]
+CMD ["/bin/sh", "-c", "npm start"]
