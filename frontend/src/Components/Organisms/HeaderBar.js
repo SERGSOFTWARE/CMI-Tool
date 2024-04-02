@@ -34,7 +34,7 @@ function HeaderBar({ onSettingsClicked, onResetClicked }) {
             </Tooltip>
           </div>
           <div>
-            <Tooltip title={"Reset"} placement="bottom">
+            <Tooltip title={"Reset to default"} placement="bottom">
               <RotateLeftIcon
                 onClick={() => {
                   onResetClicked();

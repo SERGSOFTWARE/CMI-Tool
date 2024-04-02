@@ -33,3 +33,28 @@ export const SANKEY_BUTTON_TO_REMOVE = [
   "resetViewMapbox",
   "toImage",
 ];
+
+export const rgbStringToObject = (rgbString) => {
+  return rgbString;
+};
+
+export const getChangedFields = (objectsArray, keysArray) => {
+  const matchingValues = {};
+
+  for (const obj of objectsArray) {
+    if (keysArray.includes(obj.key)) {
+      matchingValues[obj.label] = obj.value;
+    }
+  }
+
+  return matchingValues;
+};
+
+export const isObjectEmpty = (obj) => {
+  if (obj !== null && typeof obj === "object") {
+    var keys = Object.keys(obj);
+    return keys.length === 0;
+  } else {
+    return true;
+  }
+};

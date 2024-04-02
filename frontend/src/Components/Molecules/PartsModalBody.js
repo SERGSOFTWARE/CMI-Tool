@@ -11,8 +11,13 @@ export default function PartsModalBody({ options, selected, handleClick }) {
           return (
             <OvalChips
               label={ele.value}
+              key={index}
               id={`oval-chip-field-${index}`}
-              className={isSelected ? "oval-chip-Selected oval-chip-margin-rigth" : "oval-chip-margin-rigth"}
+              className={
+                isSelected
+                  ? "oval-chip-Selected oval-chip-margin-rigth"
+                  : "oval-chip-margin-rigth"
+              }
               handleClick={() => handleClick(ele)}
             />
           );
