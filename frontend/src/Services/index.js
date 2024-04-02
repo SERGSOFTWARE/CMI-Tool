@@ -20,7 +20,13 @@ export const getValueChangeResults = ({ data, input1, input2 }) => {
       .post(`http://www.localhost:5050/api/v1/material`, body)
       .then((response) => {
         if (response && response.status === 200) {
-          resolve(response.data);
+          const removeDouble = response.data.replace(/"/g, "");
+          const replaceSingleToDoubleQuotes = removeDouble.replace(
+            /'/g,
+            '"'
+          );
+          const parsedResponse = JSON.parse(replaceSingleToDoubleQuotes);
+          resolve(parsedResponse);
         }
       })
       .catch((error) => {
