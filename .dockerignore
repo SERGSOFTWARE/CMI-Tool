@@ -1,9 +1,13 @@
 # Exclude backend node_modules
-backend/node_modules
-backend/package-lock.json
+**/*node_modules
+**/*package-lock.json
+
+**/node_modules
 
 # Exclude frontend node_modules
-frontend/node_modules
+**/**node_modules
+
+**/*nginx
 
 myenv
 
