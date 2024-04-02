@@ -1,14 +1,13 @@
 # Exclude backend node_modules
-**/*node_modules
-**/*package-lock.json
+backend/node_modules/**
+backend/package-lock.json
 
-**/node_modules
-
+**/node_modules/**
 # Exclude frontend node_modules
-**/**node_modules
 
-**/*nginx
 
-myenv
+backend/nginx/*
+
+myenv/*
 
 .gitignore
