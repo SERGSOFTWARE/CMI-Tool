@@ -21,7 +21,7 @@ df = pd.read_excel(src_file_path, sheet_name=dest_sheet_name)
 
 # update column values
 for key, val in input_json.items():
-    df.loc[df['Prod'] == key, 'FD'] = val
+    df.loc[df['Prod'] == key, 'FD'] = float(val)
 
 # Save the updated DataFrame back to the Excel file
 with pd.ExcelWriter(dest_file_path, mode='a', if_sheet_exists='replace') as writer:    
