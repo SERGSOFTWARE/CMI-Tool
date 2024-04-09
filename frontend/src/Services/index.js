@@ -2,7 +2,7 @@ import axios from "axios";
 import { isObjectEmpty } from "../Utils/helpers";
 
 const PORT = process.env.REACT_APP_API_PORT;
-const DOMAIN = process.enc.REACT_APP_API_URL;
+const DOMAIN = process.env.REACT_APP_API_URL;
 
 const axiosInstance = axios.create({
   timeout: 60000,
