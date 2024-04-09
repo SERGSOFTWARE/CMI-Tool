@@ -111,7 +111,9 @@ class Home extends Component {
   // on finish clicked on chemical settings modal
   chemicalSettingsFinished = (element) => {
     this.settingsModalClose();
-    this.getDefaultResultsForSankey();
+    this.setState({ isLoading: true }, () => {
+      this.getDefaultResultsForSankey();
+    });
   };
 
   // fun to close snack bar - START
