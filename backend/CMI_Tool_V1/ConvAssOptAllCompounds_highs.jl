@@ -116,7 +116,7 @@ optimize!(cmi_model)
 #    println(iis_model)
 # end
 
-println("----------------------------Process scaling factors----------------------------")
+# println("----------------------------Process scaling factors----------------------------")
 
 s1=JuMP.value.(s)
 #=for i in 1:167
@@ -130,7 +130,7 @@ scaledB=B*diagm(s1)
 
 prodflows=B*s1
 
-println("----------------------------Product Flows----------------------------")
+# println("----------------------------Product Flows----------------------------")
 
 #=for i in 1:190
     print(prodnames[i+1])

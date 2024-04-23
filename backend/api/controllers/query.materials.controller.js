@@ -69,7 +69,6 @@ export default class QueryMaterialCtrl {
 
             // run script
             await executeScript()
-            console.log("Script execute complete")
 
             // get results
             const stdout = await QueryMaterialCtrl.getResults(req.body.input1, req.body.input2)
@@ -99,6 +98,6 @@ async function executeScript() {
         console.error("File does not exists")
     }
     await execFileWithPromise("julia", ["ConvAssOptAllCompounds_highs.jl"], { cwd: "CMI_Tool_V1/" })
-    await execFileWithPromise("python3", ["convert_scaled_xlsx_to_csv.py"], { cwd: "CMI_Tool_V1/" })
+    // await execFileWithPromise("python3", ["convert_scaled_xlsx_to_csv.py"], { cwd: "CMI_Tool_V1/" })
     console.log("script execute success")
 }
